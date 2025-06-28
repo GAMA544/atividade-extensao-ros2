@@ -16,8 +16,8 @@ Criamos um **site educacional** contendo:
 - ✅ Um **formulário do Google Forms** incorporado para colher opiniões e interações do público.
 
 📎 Acesse o material em:  
-🔗 [https://Sandrox01.github.io/atividade-extensao-ros2](https://Sandrox01.github.io/atividade-extensao-ros2) *(link de demonstração, atualize se necessário)*  
-📝 Formulário de feedback: [https://forms.gle/seu-formulario](https://forms.gle/seu-formulario)
+🔗 [https://gama544.github.io/atividade-extensao-ros2/](https://gama544.github.io/atividade-extensao-ros2/)
+📝 Formulário de feedback: [https://forms.gle/JvzF6XYmmRq1S3169](https://forms.gle/JvzF6XYmmRq1S3169)
 
 ---
 
