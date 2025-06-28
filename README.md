@@ -70,8 +70,9 @@ Além disso, escolhemos o tema **ROS 2 com robôs móveis** por ser atual, relev
 
 ## 👨‍💻 Autores
 
-- Sandro Xavier (@Sandrox01)
-- [Adicione os nomes dos demais integrantes aqui]
+- Sandro Cárdenas Vilca
+- Ari Gamboa Aguilar
+- Luis Asuncion Velasquez
 
 ---
 
