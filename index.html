@@ -8,7 +8,7 @@
 </head>
 <body>
     <header>
-        <img src="header-futurista.png" alt="Decoración futurista header" style="width:100%; position:absolute; top:0; left:0; z-index:-1; opacity:0.4;">
+        
         <h1>Guia Prático de ROS 2 e Robótica Móvel</h1>
         <nav>
             <ul>
@@ -22,7 +22,6 @@
         </nav>
     </header>
 
-    <img src="decoracion-lateral.png" alt="Decoración lateral" style="position:fixed; top:0; left:0; height:100%; z-index:-1; opacity:0.2;">
     <main>
         <section id="introducao">
             <h2>Introdução à Robótica Móvel e ao ROS 2</h2>
@@ -62,7 +61,6 @@
             </p>
         </section>
 
-        <img src="separador-seccion.png" alt="Separador decorativo" style="width:100%; margin:40px 0;">
         <section id="instalacao">
             <h2>Instalação e Configuração do ROS 2</h2>
             <p>
@@ -80,27 +78,27 @@
             <ol>
                 <li>
                     <strong>Atualizar o sistema:</strong><br>
-                    <code>sudo apt update && sudo apt upgrade</code>
+                    <pre><code>sudo apt update && sudo apt upgrade</code></pre>
                 </li>
                 <li>
                     <strong>Adicionar o repositório ROS 2:</strong><br>
-                    <code>sudo apt install software-properties-common</code><br>
-                    <code>sudo add-apt-repository universe</code>
+                    <pre><code>sudo apt install software-properties-common</code></pre>
+                    <pre><code>sudo add-apt-repository universe</code></pre>
                 </li>
                 <li>
                     <strong>Configurar a chave do repositório:</strong><br>
-                    <code>sudo apt update && sudo apt install curl -y</code><br>
-                    <code>curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</code>
+                    <pre><code>sudo apt update && sudo apt install curl -y</code></pre>
+                    <pre><code>curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</code></pre>
                 </li>
                 <li>
                     <strong>Instalar ROS 2 (por exemplo, a versão Humble):</strong><br>
-                    <code>sudo apt update</code><br>
-                    <code>sudo apt install ros-humble-desktop</code>
+                    <pre><code>sudo apt update</code></pre>
+                    <pre><code>sudo apt install ros-humble-desktop</code></pre>
                 </li>
                 <li>
                     <strong>Adicionar o ambiente ROS ao bash:</strong><br>
-                    <code>echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc</code><br>
-                    <code>source ~/.bashrc</code>
+                    <pre><code>echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc</code></pre>
+                    <pre><code>source ~/.bashrc</code></pre>
                 </li>
             </ol>
         
@@ -134,7 +132,7 @@
             </p>
         </section>
 
-        <img src="separador-seccion.png" alt="Separador decorativo" style="width:100%; margin:40px 0;">
+        
         <section id="workspace">
             <h2>Criando Workspace, Pacotes e Nós no ROS 2</h2>
             <p>
@@ -143,7 +141,7 @@
         
             <h3>Criando um Pacote</h3>
             <p>
-                Dentro do diretório <code>src</code> do seu workspace, crie um novo pacote. Por exemplo, para criar um pacote Python:
+                Dentro do diretório <pre><code>src</code></pre> do seu workspace, crie um novo pacote. Por exemplo, para criar um pacote Python:
             </p>
             <pre><code>cd ~/ros2_ws/src
         ros2 pkg create --build-type ament_python meu_primeiro_pacote</code></pre>
@@ -153,7 +151,7 @@
         
             <h3>Escrevendo um Nó Simples</h3>
             <p>
-                Abra o arquivo <code>meu_primeiro_pacote/meu_primeiro_pacote/talker.py</code> e adicione:
+                Abra o arquivo <pre><code>meu_primeiro_pacote/meu_primeiro_pacote/talker.py</code></pre> e adicione:
             </p>
             <pre><code>import rclpy
         from rclpy.node import Node
@@ -201,7 +199,7 @@
             </p>
         </section>
 
-        <img src="separador-seccion.png" alt="Separador decorativo" style="width:100%; margin:40px 0;">
+         
         <section id="ferramentas">
             <h2>Ferramentas de Desenvolvimento – Consoles, Debug, Rosbag, RViz e Rqt</h2>
             <p>
@@ -213,10 +211,10 @@
                 O ROS 2 fornece utilitários de console para monitorar mensagens publicadas, tópicos ativos, serviços e parâmetros de configuração:
             </p>
             <ul>
-                <li><code>ros2 topic list</code>: lista todos os tópicos ativos.</li>
-                <li><code>ros2 topic echo /nome_topico</code>: exibe mensagens publicadas em um tópico.</li>
-                <li><code>ros2 node list</code>: lista todos os nós ativos.</li>
-                <li><code>ros2 param list</code>: lista parâmetros de nós ativos.</li>
+                <li><pre><code>ros2 topic list</code></pre>: lista todos os tópicos ativos.</li>
+                <li><pre><code>ros2 topic echo /nome_topico</code></pre>: exibe mensagens publicadas em um tópico.</li>
+                <li><pre><code>ros2 node list</code></pre>: lista todos os nós ativos.</li>
+                <li><pre><code>ros2 param list</code></pre>: lista parâmetros de nós ativos.</li>
             </ul>
         
             <h3>Rosbag</h3>
@@ -254,7 +252,7 @@
             </p>
         </section>
 
-        <img src="separador-seccion.png" alt="Separador decorativo" style="width:100%; margin:40px 0;">
+         
         <section id="simulacao">
             <h2>Simulação com Gazebo – Modelos, Plugins e Sensores</h2>
             <p>
@@ -277,13 +275,13 @@
             <p>
                 O TurtleBot3 é um robô educacional popular com suporte nativo no ROS 2. Para rodar a simulação:
             </p>
-            <pre><code>sudo apt install ros-humble-turtlebot3* </code><br>
-            <code>export TURTLEBOT3_MODEL=burger</code><br>
-            <code>ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py</code></pre>
+            <pre><code>sudo apt install ros-humble-turtlebot3* </code></pre>
+            <pre><code>export TURTLEBOT3_MODEL=burger</code></pre>
+            <pre><code>ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py</code></pre>
         
             <h3>Adicionando Sensores e Plugins</h3>
             <p>
-                O Gazebo permite adicionar sensores virtuais como LIDAR, câmeras, IMU, e mais, para simular comportamentos realistas. Você pode modificar arquivos de descrição do robô (<code>.urdf</code> ou <code>.xacro</code>) para incluir plugins que publicam dados em tópicos ROS 2.
+                O Gazebo permite adicionar sensores virtuais como LIDAR, câmeras, IMU, e mais, para simular comportamentos realistas. Você pode modificar arquivos de descrição do robô (<pre><code>.urdf</code></pre> ou <pre><code>.xacro</code></pre>) para incluir plugins que publicam dados em tópicos ROS 2.
             </p>
         
             <figure>
@@ -303,7 +301,7 @@
             </p>
         </section>
 
-        <img src="separador-seccion.png" alt="Separador decorativo" style="width:100%; margin:40px 0;">
+         
         <section id="trabalhos">
             <h2>Trabalhos Práticos, Desafios e Conclusão</h2>
             <p>
@@ -312,7 +310,7 @@
         
             <h3>Desafios Frequentes</h3>
             <ul>
-                <li><strong>Dependências quebradas:</strong> usar <code>rosdep</code> e verificar o <code>package.xml</code> ajuda a resolver problemas de compilação.</li>
+                <li><strong>Dependências quebradas:</strong> usar <pre><code>rosdep</code></pre> e verificar o <pre><code>package.xml</code></pre> ajuda a resolver problemas de compilação.</li>
                 <li><strong>Comunicação entre nós:</strong> sempre verifique nomes de tópicos, namespaces e tipos de mensagens.</li>
                 <li><strong>Simulação vs. Real:</strong> os modelos de simulação podem ter pequenas diferenças de comportamento em relação ao robô físico; ajuste parâmetros de controle para cada contexto.</li>
             </ul>
@@ -345,14 +343,14 @@
                 Clique no link abaixo para enviar suas impressões, sugestões ou relatar dificuldades encontradas:
             </p>
             <p>
-                <a href="https://forms.gle/seu-formulario" target="_blank">Formulário de Comentários</a>
+                <a href="https://forms.gle/6fgD4vyK1X3jhLc88" target="_blank">Formulário de Comentários</a>
             </p>
         </section>
 
     </main>
 
     <footer>
-        <p>&copy; 2025 Projeto de Extensão - ROS 2 e Robótica Móvel</p>
+        <p>2025 Projeto de Extensão - ROS 2 e Programação de Robôs Móveis</p>
     </footer>
 
 </body>
