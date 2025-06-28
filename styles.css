@@ -1,4 +1,4 @@
-/* Parte 1 - Reset e Configuração Base */
+/* Parte 1 - Reset e Configuração Base Futurista */
 
 * {
     margin: 0;
@@ -7,24 +7,27 @@
 }
 
 body {
-    font-family: 'Roboto', 'Segoe UI', Tahoma, sans-serif;
-    background: linear-gradient(135deg, #e8f1f2, #f8fbfd);
-    color: #333;
-    line-height: 1.7;
+    font-family: 'Orbitron', sans-serif;
+    background: radial-gradient(ellipse at center, #0d0d1a 0%, #000010 100%);
+    color: #e0e0e0;
+    overflow-x: hidden;
 }
 
-/* Cabeçalho */
 header {
-    background: linear-gradient(135deg, #16a085, #1abc9c);
-    color: white;
+    background: linear-gradient(90deg, #1f0036, #360057);
+    color: #fff;
     text-align: center;
-    padding: 40px 20px;
+    padding: 60px 20px;
     position: relative;
 }
 
 header h1 {
-    font-size: 2.5em;
-    margin-bottom: 10px;
+    font-size: 3em;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 nav ul {
@@ -32,146 +35,142 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
+    margin-top: 20px;
 }
 
 nav li {
-    margin: 8px 12px;
+    margin: 8px 15px;
 }
 
 nav a {
-    color: white;
+    color: #fff;
     text-decoration: none;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 30px;
     font-weight: bold;
-    padding: 10px 18px;
-    border: 2px solid white;
-    border-radius: 25px;
     transition: all 0.3s;
 }
 
 nav a:hover {
-    background: white;
-    color: #16a085;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    transform: scale(1.05);
 }
-/* Parte 2 - Estilo Principal e Seções */
+
+/* Parte 2 - Seções e Elementos Dinâmicos */
 
 main {
-    max-width: 1000px;
-    margin: 30px auto;
-    padding: 0 20px;
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 30px;
 }
 
 section {
-    background: white;
-    border-radius: 10px;
-    padding: 30px;
-    margin-bottom: 40px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s, box-shadow 0.3s;
+    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 40px;
+    margin-bottom: 50px;
+    position: relative;
+    overflow: hidden;
 }
 
-section:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,0,204,0.1), transparent);
+    animation: pulse 5s infinite alternate;
+}
+
+@keyframes pulse {
+    0% { transform: rotate(0deg) scale(1); }
+    100% { transform: rotate(360deg) scale(1.2); }
 }
 
 section h2 {
     margin-bottom: 20px;
-    font-size: 2em;
-    color: #2c3e50;
+    font-size: 2.5em;
+    color: #fff;
+    text-shadow: 0 0 10px #ff00cc;
 }
 
 section h3 {
-    margin-top: 20px;
-    color: #1abc9c;
-    border-left: 5px solid #1abc9c;
-    padding-left: 10px;
+    margin-top: 25px;
+    color: #33ffff;
+    font-size: 1.5em;
+    border-left: 5px solid #33ffff;
+    padding-left: 15px;
 }
 
 section p {
-    margin-bottom: 15px;
-}
-
-section ul, section ol {
-    margin: 10px 0 20px 30px;
-}
-
-section code, pre {
-    background: #f3f6f7;
-    padding: 3px 7px;
-    border-radius: 5px;
-    font-family: monospace;
-}
-
-pre {
-    display: block;
-    padding: 12px;
-    overflow-x: auto;
-}
-
-figure {
-    margin: 25px auto;
-    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.1em;
 }
 
 figure img {
-    border-radius: 10px;
-    max-width: 100%;
-    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 0 20px #ff00cc;
+    transition: transform 0.3s;
 }
 
-figure figcaption {
-    margin-top: 8px;
-    font-size: 0.95em;
-    color: #555;
+figure img:hover {
+    transform: scale(1.05);
 }
-/* Parte 3 - Botões, Links e Footer */
+
+/* Parte 3 - Botões, Links e Footer Futurista */
 
 a {
-    color: #3498db;
+    color: #33ffff;
     text-decoration: none;
+    transition: color 0.3s;
 }
 
 a:hover {
-    text-decoration: underline;
+    color: #ff00cc;
 }
 
 .button, button {
-    background: #1abc9c;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
     color: white;
     border: none;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border-radius: 30px;
     font-weight: bold;
     cursor: pointer;
-    transition: background 0.3s;
+    transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .button:hover, button:hover {
-    background: #16a085;
+    transform: scale(1.1);
+    box-shadow: 0 0 15px #ff00cc;
 }
 
 footer {
     text-align: center;
-    background: #2c3e50;
+    background: linear-gradient(90deg, #1f0036, #360057);
     color: white;
-    padding: 30px 20px;
-    margin-top: 40px;
+    padding: 40px 20px;
+    margin-top: 60px;
+    position: relative;
 }
 
 footer p {
-    font-size: 1em;
+    font-size: 1.1em;
 }
 
-@media (max-width: 700px) {
-    nav ul {
-        flex-direction: column;
-    }
+/* Efeitos de Fundo Animados */
 
-    nav li {
-        margin: 5px 0;
-    }
-
-    section {
-        padding: 20px;
-    }
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('background-futurista.png') center/cover no-repeat;
+    opacity: 0.1;
+    z-index: -1;
 }
+
