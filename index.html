@@ -23,28 +23,330 @@
 
     <main>
         <section id="introducao">
-            <!-- Aqui vai o conteúdo da Seção 1 -->
+            <h2>Introdução à Robótica Móvel e ao ROS 2</h2>
+            <p>
+                Bem-vindo ao nosso guia prático sobre <strong>Robótica Móvel</strong> e o uso do <strong>ROS 2</strong> (Robot Operating System 2). Este material foi criado para estudantes universitários, professores, entusiastas da robótica, pesquisadores e qualquer pessoa interessada em aprender os fundamentos do controle, simulação e programação de robôs móveis.
+            </p>
+        
+            <p>
+                A robótica móvel é uma área fascinante que envolve o estudo, o projeto e o desenvolvimento de robôs capazes de se locomover de maneira autônoma ou semi-autônoma em ambientes físicos. Ao longo das últimas décadas, ela se tornou essencial em aplicações industriais, agrícolas, logísticas, de pesquisa científica, e até mesmo em ambientes domésticos.
+            </p>
+        
+            <p>
+                O <strong>ROS 2</strong> é um framework moderno de software que fornece ferramentas, bibliotecas e convenções para construir aplicações de robótica robustas. Ele permite a comunicação entre múltiplos módulos de software (chamados <em>nós</em>), a troca de mensagens por meio de tópicos, serviços de chamadas remotas, simulação e integração com hardware real.
+            </p>
+        
+            <h3>Por que aprender ROS 2?</h3>
+            <ul>
+                <li>É um padrão aberto e utilizado mundialmente na pesquisa e na indústria robótica.</li>
+                <li>Permite desenvolver rapidamente sistemas complexos, modularizando código em <em>nós</em> que comunicam entre si.</li>
+                <li>Tem suporte para simulação 3D (Gazebo) e ferramentas visuais (RViz) para depuração e desenvolvimento.</li>
+                <li>Oferece suporte nativo a sistemas distribuídos, comunicação em tempo real, e é construído sobre middleware DDS robusto.</li>
+            </ul>
+        
+            <h3>Conteúdo do Guia</h3>
+            <p>
+                Este material está dividido em seções progressivas, começando pela instalação e configuração do ROS 2, passando pelos primeiros passos no desenvolvimento de nós e pacotes, utilização de ferramentas de depuração, simulação de robôs móveis com Gazebo, e encerrando com boas práticas e exemplos de trabalhos práticos. Ao final, incluímos um espaço para comentários e feedback do público, para que possamos aprimorar continuamente este conteúdo.
+            </p>
+        
+            <figure>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/ROS_logo.svg/2560px-ROS_logo.svg.png" alt="Logo do ROS 2" style="max-width: 300px;">
+                <figcaption>Figura 1 - Logo oficial do ROS 2.</figcaption>
+            </figure>
+        
+            <h3>Como usar este Guia</h3>
+            <p>
+                Recomendamos que você leia cada seção na ordem, execute os exemplos práticos em seu próprio ambiente de desenvolvimento, e utilize o formulário ao final para enviar dúvidas, sugestões e comentários. Este é um material vivo, que evoluirá com a participação da comunidade.
+            </p>
         </section>
+
 
         <section id="instalacao">
-            <!-- Aqui vai o conteúdo da Seção 2 -->
+            <h2>Instalação e Configuração do ROS 2</h2>
+            <p>
+                Antes de começar a programar robôs móveis com ROS 2, é fundamental instalar corretamente o ambiente de desenvolvimento. Esta seção fornece um guia passo-a-passo para instalar o ROS 2 em sistemas baseados em Linux (Ubuntu), que é a plataforma recomendada para aprendizado e prototipagem.
+            </p>
+        
+            <h3>Requisitos de Sistema</h3>
+            <ul>
+                <li>Ubuntu 22.04 (ou 20.04) 64-bit.</li>
+                <li>Espaço em disco de pelo menos 5 GB.</li>
+                <li>Conexão de internet estável para baixar pacotes.</li>
+            </ul>
+        
+            <h3>Passos de Instalação</h3>
+            <ol>
+                <li>
+                    <strong>Atualizar o sistema:</strong><br>
+                    <code>sudo apt update && sudo apt upgrade</code>
+                </li>
+                <li>
+                    <strong>Adicionar o repositório ROS 2:</strong><br>
+                    <code>sudo apt install software-properties-common</code><br>
+                    <code>sudo add-apt-repository universe</code>
+                </li>
+                <li>
+                    <strong>Configurar a chave do repositório:</strong><br>
+                    <code>sudo apt update && sudo apt install curl -y</code><br>
+                    <code>curl -s https://raw.githubusercontent.com/ros/rosdistro/master/ros.asc | sudo apt-key add -</code>
+                </li>
+                <li>
+                    <strong>Instalar ROS 2 (por exemplo, a versão Humble):</strong><br>
+                    <code>sudo apt update</code><br>
+                    <code>sudo apt install ros-humble-desktop</code>
+                </li>
+                <li>
+                    <strong>Adicionar o ambiente ROS ao bash:</strong><br>
+                    <code>echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc</code><br>
+                    <code>source ~/.bashrc</code>
+                </li>
+            </ol>
+        
+            <h3>Configurando o Workspace</h3>
+            <p>
+                Depois de instalar o ROS 2, recomendamos criar um <em>workspace</em> para seus projetos:
+            </p>
+            <pre><code>mkdir -p ~/ros2_ws/src
+        cd ~/ros2_ws
+        colcon build
+        source install/setup.bash
+            </code></pre>
+        
+            <h3>Verificando a Instalação</h3>
+            <p>
+                Teste se o ROS 2 está funcionando corretamente:
+            </p>
+            <pre><code>ros2 run demo_nodes_cpp talker</code></pre>
+            <p>
+                Em outro terminal:
+            </p>
+            <pre><code>ros2 run demo_nodes_cpp listener</code></pre>
+        
+            <figure>
+                <img src="https://index.ros.org/static/images/ros2-index.png" alt="Instalação do ROS 2" style="max-width: 400px;">
+                <figcaption>Figura 2 - ROS 2 instalado e funcionando.</figcaption>
+            </figure>
+        
+            <p>
+                Com isso, o ROS 2 está pronto para ser utilizado. Na próxima seção, veremos como criar <em>nós</em> e pacotes para começar o desenvolvimento prático.
+            </p>
         </section>
+
 
         <section id="workspace">
-            <!-- Aqui vai o conteúdo da Seção 3 -->
+            <h2>Criando Workspace, Pacotes e Nós no ROS 2</h2>
+            <p>
+                Agora que você tem o ROS 2 instalado e um workspace configurado, é hora de aprender como estruturar seus projetos criando <strong>pacotes</strong> e <strong>nós</strong>. Um nó é a unidade básica de execução no ROS 2 — ele realiza uma função específica e se comunica com outros nós via tópicos e serviços.
+            </p>
+        
+            <h3>Criando um Pacote</h3>
+            <p>
+                Dentro do diretório <code>src</code> do seu workspace, crie um novo pacote. Por exemplo, para criar um pacote Python:
+            </p>
+            <pre><code>cd ~/ros2_ws/src
+        ros2 pkg create --build-type ament_python meu_primeiro_pacote</code></pre>
+            <p>
+                Isso cria a estrutura básica de diretórios e arquivos para seu pacote Python.
+            </p>
+        
+            <h3>Escrevendo um Nó Simples</h3>
+            <p>
+                Abra o arquivo <code>meu_primeiro_pacote/meu_primeiro_pacote/talker.py</code> e adicione:
+            </p>
+            <pre><code>import rclpy
+        from rclpy.node import Node
+        
+        class Talker(Node):
+            def __init__(self):
+                super().__init__('talker')
+                self.create_timer(1.0, self.timer_callback)
+        
+            def timer_callback(self):
+                self.get_logger().info('Olá mundo do ROS 2!')
+        
+        def main():
+            rclpy.init()
+            node = Talker()
+            rclpy.spin(node)
+            rclpy.shutdown()
+        
+        if __name__ == '__main__':
+            main()
+            </code></pre>
+        
+            <h3>Construindo o Workspace</h3>
+            <p>
+                Volte para a raiz do workspace e construa tudo:
+            </p>
+            <pre><code>cd ~/ros2_ws
+        colcon build</code></pre>
+        
+            <h3>Executando o Nó</h3>
+            <p>
+                Após construir, execute:
+            </p>
+            <pre><code>source install/setup.bash
+        ros2 run meu_primeiro_pacote talker</code></pre>
+        
+            <h3>Exemplo de Estrutura de Pacote</h3>
+            <figure>
+                <img src="https://docs.ros.org/en/foxy/_images/ros2_package_structure.png" alt="Estrutura de Pacote" style="max-width: 400px;">
+                <figcaption>Figura 3 - Estrutura de um pacote ROS 2 Python.</figcaption>
+            </figure>
+        
+            <p>
+                Com isso, você criou, compilou e executou seu primeiro nó no ROS 2. Na próxima seção, vamos explorar ferramentas importantes para depuração, visualização e análise de dados em ROS 2.
+            </p>
         </section>
+
 
         <section id="ferramentas">
-            <!-- Aqui vai o conteúdo da Seção 4 -->
+            <h2>Ferramentas de Desenvolvimento – Consoles, Debug, Rosbag, RViz e Rqt</h2>
+            <p>
+                O ROS 2 oferece um conjunto robusto de ferramentas para auxiliar no desenvolvimento, depuração e análise de sistemas robóticos. Aqui destacamos algumas das mais utilizadas.
+            </p>
+        
+            <h3>Consoles e Logs</h3>
+            <p>
+                O ROS 2 fornece utilitários de console para monitorar mensagens publicadas, tópicos ativos, serviços e parâmetros de configuração:
+            </p>
+            <ul>
+                <li><code>ros2 topic list</code>: lista todos os tópicos ativos.</li>
+                <li><code>ros2 topic echo /nome_topico</code>: exibe mensagens publicadas em um tópico.</li>
+                <li><code>ros2 node list</code>: lista todos os nós ativos.</li>
+                <li><code>ros2 param list</code>: lista parâmetros de nós ativos.</li>
+            </ul>
+        
+            <h3>Rosbag</h3>
+            <p>
+                <strong>Rosbag</strong> é uma ferramenta para gravar e reproduzir tópicos de mensagem. Isso é útil para análise offline, reprodução de testes e criação de cenários de simulação.
+            </p>
+            <pre><code>ros2 bag record -o meu_log /topic1 /topic2</code></pre>
+            <p>
+                Para reproduzir:
+            </p>
+            <pre><code>ros2 bag play meu_log</code></pre>
+        
+            <h3>RViz</h3>
+            <p>
+                <strong>RViz</strong> é um visualizador 3D para ROS 2. Ele permite observar dados de sensores, frames de referência, caminhos de movimento e muito mais. Para abrir o RViz:
+            </p>
+            <pre><code>rviz2</code></pre>
+            <p>
+                Dentro do RViz, você pode adicionar displays para tópicos específicos, como nuvens de pontos, mapas de ocupação, frames TF, entre outros.
+            </p>
+        
+            <h3>Rqt</h3>
+            <p>
+                <strong>Rqt</strong> é uma interface gráfica modular para ROS 2. Com ele, você pode monitorar gráficos de tópicos, explorar graficamente árvores de nós e tópicos, depurar parâmetros, e até mesmo criar plugins personalizados.
+            </p>
+            <pre><code>rqt</code></pre>
+        
+            <figure>
+                <img src="https://raw.githubusercontent.com/ros-visualization/rviz/master/images/screenshot.png" alt="Exemplo do RViz" style="max-width: 400px;">
+                <figcaption>Figura 4 - Interface do RViz mostrando tópicos e frames.</figcaption>
+            </figure>
+        
+            <p>
+                Na próxima seção, aprenderemos a simular robôs móveis em ambientes virtuais usando o <strong>Gazebo</strong> e a integrar sensores e plugins simulados.
+            </p>
         </section>
+
 
         <section id="simulacao">
-            <!-- Aqui vai o conteúdo da Seção 5 -->
+            <h2>Simulação com Gazebo – Modelos, Plugins e Sensores</h2>
+            <p>
+                O <strong>Gazebo</strong> é um simulador 3D amplamente utilizado no desenvolvimento de robôs móveis. Ele permite criar ambientes realistas, testar modelos de robôs, sensores e plugins sem necessidade de hardware físico.
+            </p>
+        
+            <h3>Instalando o Gazebo</h3>
+            <p>
+                Em distribuições recentes do ROS 2 (como Humble), o Gazebo pode ser instalado via:
+            </p>
+            <pre><code>sudo apt install ros-humble-gazebo-ros-pkgs</code></pre>
+        
+            <h3>Executando um Mundo Simples</h3>
+            <p>
+                Para iniciar o Gazebo com um mundo de exemplo:
+            </p>
+            <pre><code>gazebo</code></pre>
+        
+            <h3>Simulando um Robô (TurtleBot3)</h3>
+            <p>
+                O TurtleBot3 é um robô educacional popular com suporte nativo no ROS 2. Para rodar a simulação:
+            </p>
+            <pre><code>sudo apt install ros-humble-turtlebot3* </code><br>
+            <code>export TURTLEBOT3_MODEL=burger</code><br>
+            <code>ros2 launch turtlebot3_gazebo turtlebot3_world.launch.py</code></pre>
+        
+            <h3>Adicionando Sensores e Plugins</h3>
+            <p>
+                O Gazebo permite adicionar sensores virtuais como LIDAR, câmeras, IMU, e mais, para simular comportamentos realistas. Você pode modificar arquivos de descrição do robô (<code>.urdf</code> ou <code>.xacro</code>) para incluir plugins que publicam dados em tópicos ROS 2.
+            </p>
+        
+            <figure>
+                <img src="https://turtlebot.github.io/turtlebot3/figures/turtlebot3_gazebo_simulation.png" alt="TurtleBot3 no Gazebo" style="max-width: 400px;">
+                <figcaption>Figura 5 - TurtleBot3 simulado no ambiente Gazebo.</figcaption>
+            </figure>
+        
+            <h3>Comandos Úteis no Gazebo</h3>
+            <ul>
+                <li><strong>Reset World:</strong> Reinicia o ambiente de simulação.</li>
+                <li><strong>Pause:</strong> Pausa a simulação para análise.</li>
+                <li><strong>Insert:</strong> Adiciona novos modelos ao ambiente.</li>
+            </ul>
+        
+            <p>
+                Com a simulação configurada, podemos criar algoritmos de navegação, controle de movimento e testes em ambientes virtuais antes de passar para hardware real. Na próxima seção, exploraremos práticas, desafios comuns e dicas para desenvolver projetos robustos em ROS 2.
+            </p>
         </section>
 
+
         <section id="trabalhos">
-            <!-- Aqui vai o conteúdo da Seção 6 -->
+            <h2>Trabalhos Práticos, Desafios e Conclusão</h2>
+            <p>
+                Durante o curso e as atividades práticas com ROS 2, é comum enfrentar desafios que vão desde configurações de ambiente até o desenvolvimento de algoritmos de controle complexos. Aqui destacamos algumas dificuldades comuns e boas práticas para contorná-las.
+            </p>
+        
+            <h3>Desafios Frequentes</h3>
+            <ul>
+                <li><strong>Dependências quebradas:</strong> usar <code>rosdep</code> e verificar o <code>package.xml</code> ajuda a resolver problemas de compilação.</li>
+                <li><strong>Comunicação entre nós:</strong> sempre verifique nomes de tópicos, namespaces e tipos de mensagens.</li>
+                <li><strong>Simulação vs. Real:</strong> os modelos de simulação podem ter pequenas diferenças de comportamento em relação ao robô físico; ajuste parâmetros de controle para cada contexto.</li>
+            </ul>
+        
+            <h3>Boas Práticas</h3>
+            <ol>
+                <li>Organizar o workspace em pacotes modulares e reaproveitáveis.</li>
+                <li>Documentar cada nó e tópico que seu sistema publica ou subscreve.</li>
+                <li>Usar o controle de versão (Git) para gerenciar alterações de código e configuração.</li>
+                <li>Testar incrementalmente: valide cada parte do sistema antes de integrá-la ao conjunto.</li>
+            </ol>
+        
+            <h3>Trabalhos Práticos</h3>
+            <p>
+                Ao longo do projeto de extensão, foram desenvolvidos exemplos de simulação, scripts de controle de movimento para robôs móveis, integração com sensores virtuais e análise de dados via RViz e Rqt. Esse conjunto de práticas reforça a importância de dominar tanto a parte teórica quanto a execução técnica de projetos de robótica.
+            </p>
+        
+            <figure>
+                <img src="https://moveit.ros.org/assets/images/moveit2/moveit2_roscon.png" alt="Trabalhos práticos em ROS 2" style="max-width: 400px;">
+                <figcaption>Figura 6 - Demonstração de simulação e visualização de movimento em ROS 2.</figcaption>
+            </figure>
+        
+            <h3>Conclusão</h3>
+            <p>
+                Esperamos que este material ajude você a iniciar seus estudos e projetos em ROS 2 e robótica móvel. A robótica é uma área em constante evolução e cada contribuição da comunidade fortalece o ecossistema aberto do ROS 2. Encorajamos que compartilhe seu feedback usando o formulário abaixo.
+            </p>
+        
+            <h3>Deixe seu Comentário</h3>
+            <p>
+                Clique no link abaixo para enviar suas impressões, sugestões ou relatar dificuldades encontradas:
+            </p>
+            <p>
+                <a href="https://forms.gle/seu-formulario" target="_blank">Formulário de Comentários</a>
+            </p>
         </section>
+
     </main>
 
     <footer>
