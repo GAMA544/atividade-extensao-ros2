@@ -1,37 +1,29 @@
-/* Parte 1 - Reset e Configuração Base Futurista */
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
+/* Parte 1 - Ajustes de fondo, estructura y botones */
 
 body {
     font-family: 'Orbitron', sans-serif;
-    background: radial-gradient(ellipse at center, #0d0d1a 0%, #000010 100%);
+    background: linear-gradient(180deg, #0d0d1a 0%, #000010 100%);
     color: #e0e0e0;
-    overflow-x: hidden;
-}
-
-header {
-    background: linear-gradient(90deg, #1f0036, #360057);
-    color: #fff;
-    text-align: center;
-    padding: 60px 20px;
+    margin: 0;
+    min-height: 100vh;
     position: relative;
 }
 
-header {
-    background: url('header-futurista.png') center/cover no-repeat;
+body::after {
+    content: '';
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url('background-futurista.png') center/cover no-repeat;
+    opacity: 0.2;
+    z-index: -1;
 }
 
-header h1 {
-    font-size: 3em;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+header {
+    background: url('header-futurista.png') center/cover no-repeat, linear-gradient(90deg, #1f0036, #360057);
+    color: #fff;
+    text-align: center;
+    padding: 60px 20px;
 }
 
 nav ul {
@@ -39,7 +31,6 @@ nav ul {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 20px;
 }
 
 nav li {
@@ -50,60 +41,26 @@ nav a {
     color: #fff;
     text-decoration: none;
     padding: 12px 20px;
-    background: rgba(255, 255, 255, 0.1);
     border-radius: 30px;
     font-weight: bold;
+    background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
 }
 
 nav a:hover {
-    background: linear-gradient(45deg, #ff00cc, #3333ff);
-    transform: scale(1.05);
+    background: #ff00cc;
+    color: #fff;
 }
-
-/* Parte 2 - Seções e Elementos Dinâmicos */
-
-main {
-    max-width: 1200px;
-    margin: 50px auto;
-    padding: 0 30px;
-}
-
-main::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('decoracion-lateral.png') left center/contain no-repeat;
-    opacity: 0.3;
-    z-index: -1;
-}
-
+/* Parte 2 - Secciones, botones y footer revisados */
 
 section {
     background: rgba(255, 255, 255, 0.05);
     border: 1px solid rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     padding: 40px;
-    margin-bottom: 50px;
+    margin: 50px auto;
+    max-width: 1000px;
     position: relative;
-    overflow: hidden;
-}
-
-section::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(255,0,204,0.1), transparent);
-    animation: pulse 5s infinite alternate;
-}
-
-@keyframes pulse {
-    0% { transform: rotate(0deg) scale(1); }
-    100% { transform: rotate(360deg) scale(1.2); }
 }
 
 section h2 {
@@ -121,33 +78,6 @@ section h3 {
     padding-left: 15px;
 }
 
-section p {
-    margin-bottom: 20px;
-    font-size: 1.1em;
-}
-
-figure img {
-    border-radius: 15px;
-    box-shadow: 0 0 20px #ff00cc;
-    transition: transform 0.3s;
-}
-
-figure img:hover {
-    transform: scale(1.05);
-}
-
-/* Parte 3 - Botões, Links e Footer Futurista */
-
-a {
-    color: #33ffff;
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: #ff00cc;
-}
-
 .button, button {
     background: linear-gradient(45deg, #ff00cc, #3333ff);
     color: white;
@@ -162,31 +92,13 @@ a:hover {
 .button:hover, button:hover {
     transform: scale(1.1);
     box-shadow: 0 0 15px #ff00cc;
+    background: linear-gradient(45deg, #ff33cc, #6633ff);
 }
 
 footer {
     text-align: center;
-    background: linear-gradient(90deg, #1f0036, #360057);
+    background: #1f0036;
     color: white;
-    padding: 40px 20px;
+    padding: 30px 20px;
     margin-top: 60px;
-    position: relative;
 }
-
-footer p {
-    font-size: 1.1em;
-}
-
-/* Efeitos de Fundo Animados */
-
-body::after {
-    content: '';
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background: url('background-futurista.png') center/cover no-repeat;
-    opacity: 0.1;
-    z-index: -1;
-}
-
-
