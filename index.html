@@ -2,35 +2,57 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Atividade de Extensão - ROS 2</title>
+    <title>Guia Rápido de ROS 2 e Robôs Móveis</title>
+    <style>
+        body { font-family: Arial, sans-serif; line-height: 1.6; margin: 0; padding: 0; }
+        header, footer { background: #004080; color: white; text-align: center; padding: 1em; }
+        section { padding: 20px; }
+        h2 { border-bottom: 2px solid #004080; padding-bottom: 5px; }
+        .image-placeholder { width: 100%; height: 200px; background: #ddd; text-align: center; line-height: 200px; margin: 20px 0; }
+        .button { background: #004080; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px; }
+    </style>
 </head>
 <body>
-    <h1>Guia Rápido de Uso do ROS 2</h1>
-    <p>Bem-vindo ao nosso material de extensão! Aqui você encontrará um guia passo-a-passo para instalação e primeiros passos com o ROS 2 em robôs móveis.</p>
+    <header>
+        <h1>Guia Rápido de ROS 2 e Robôs Móveis</h1>
+    </header>
+    
+    <section>
+        <h2>Introdução ao ROS 2</h2>
+        <p>ROS 2 é uma plataforma robusta para o desenvolvimento de aplicações robóticas. Neste guia, você encontrará informações sobre instalação, configuração, e execução de exemplos práticos.</p>
+        <div class="image-placeholder">Espaço para imagem ilustrativa</div>
+    </section>
+    
+    <section>
+        <h2>Instalação do ROS 2</h2>
+        <p>Para instalar o ROS 2 Humble em Ubuntu 22.04, execute os seguintes comandos no terminal:</p>
+        <pre>
+sudo apt update && sudo apt install curl gnupg lsb-release
+sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+sudo apt update
+sudo apt install ros-humble-desktop
+        </pre>
+    </section>
+    
+    <section>
+        <h2>Primeiros Passos</h2>
+        <p>Após a instalação, inicialize o ambiente:</p>
+        <pre>
+source /opt/ros/humble/setup.bash
+ros2 run demo_nodes_cpp talker
+        </pre>
+        <div class="image-placeholder">Espaço para captura de tela do terminal</div>
+    </section>
+    
+    <section>
+        <h2>Deixe seu Feedback</h2>
+        <p>Por favor, responda nosso formulário para sabermos seu perfil e opinião:</p>
+        <p><a class="button" href="LINK_DO_FORMULARIO" target="_blank">Formulário de Comentários</a></p>
+    </section>
 
-    <h2>Conteúdo</h2>
-    <ul>
-        <li>O que é ROS 2</li>
-        <li>Como instalar ROS 2 no Ubuntu</li>
-        <li>Executar nós e tópicos básicos</li>
-        <li>Simulação simples de um robô móvel</li>
-    </ul>
-
-    <h2>Instalação do ROS 2</h2>
-    <p>Para instalar o ROS 2 (exemplo com Ubuntu 22.04), execute:</p>
-    <pre>
-    sudo apt update && sudo apt install curl gnupg lsb-release
-    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
-    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
-    sudo apt update
-    sudo apt install ros-humble-desktop
-    </pre>
-
-    <h2>Comentários e Sugestões</h2>
-    <p>Por favor, deixe seus comentários e sugestões preenchendo o formulário abaixo:</p>
-    <p><a href="LINK_DO_SEU_GOOGLE_FORM" target="_blank">Formulário de Comentários</a></p>
-
-    <h2>Contador de Visitas</h2>
-    <p><img src="https://www.hitwebcounter.com/counter/counter.php?page=0000000&style=0006&nbdigits=5&type=page&initCount=0" title="contador de visitas" Alt="contador de visitas"></p>
+    <footer>
+        <p>© 2025 Atividade de Extensão ROS 2</p>
+    </footer>
 </body>
 </html>
