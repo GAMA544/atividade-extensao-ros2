@@ -1,8 +1,7 @@
-/* Parte 1 - Ajustes de fondo, estructura y botones */
 
 body {
     font-family: 'Orbitron', sans-serif;
-    background: linear-gradient(180deg, #0d0d1a 0%, #000010 100%);
+    background: #000010;
     color: #e0e0e0;
     margin: 0;
     min-height: 100vh;
@@ -14,44 +13,84 @@ body::after {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: url('background-futurista.png') center/cover no-repeat;
+    background: url('robot-ros2.png') center center / cover no-repeat fixed;
     opacity: 0.2;
     z-index: -1;
 }
 
+
+
 header {
-    background: url('header-futurista.png') center/cover no-repeat, linear-gradient(90deg, #1f0036, #360057);
-    color: #fff;
+    background: linear-gradient(135deg, #12002d, #26004d);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
     text-align: center;
-    padding: 60px 20px;
+    padding: 40px 20px;
+    border-bottom: 4px solid #ff00cc;
+    box-shadow: 0 0 30px #ff00cc;
+}
+
+header h1 {
+    color: #ff33ff;
+    font-size: 3em;
+    text-shadow: 0 0 15px #ff00cc, 0 0 30px #660066;
+    margin: 0 0 20px 0;
 }
 
 nav ul {
     list-style: none;
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     flex-wrap: wrap;
+    padding: 0;
+    margin: 0 auto;
+    max-width: 1200px;
 }
 
 nav li {
-    margin: 8px 15px;
+    flex: 1;
+    text-align: center;
+    margin: 10px;
 }
 
 nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 12px 20px;
+    display: inline-block;
+    width: 100%;
+    padding: 12px 0;
     border-radius: 30px;
     font-weight: bold;
+    text-decoration: none;
+    color: #fff;
     background: rgba(255, 255, 255, 0.1);
     transition: all 0.3s;
+    box-shadow: 0 0 10px rgba(255, 0, 204, 0.5);
 }
 
 nav a:hover {
-    background: #ff00cc;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
     color: #fff;
+    box-shadow: 0 0 20px #ff00cc;
 }
-/* Parte 2 - Secciones, botones y footer revisados */
+
+pre code {
+    display: block;
+    background: #0c0020;
+    color: #00ffee;
+    padding: 20px;
+    border-radius: 10px;
+    overflow-x: auto;
+    font-family: 'Courier New', monospace;
+    font-size: 1em;
+    box-shadow: 0 0 15px #ff00cc;
+}
+
+code {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 2px 6px;
+    border-radius: 5px;
+    color: #ff66ff;
+}
 
 section {
     background: rgba(255, 255, 255, 0.05);
@@ -60,7 +99,7 @@ section {
     padding: 40px;
     margin: 50px auto;
     max-width: 1000px;
-    position: relative;
+    box-shadow: 0 0 30px #330066;
 }
 
 section h2 {
@@ -87,11 +126,13 @@ section h3 {
     font-weight: bold;
     cursor: pointer;
     transition: transform 0.3s, box-shadow 0.3s;
+    display: inline-block;
+    box-shadow: 0 0 10px #ff00cc;
 }
 
 .button:hover, button:hover {
     transform: scale(1.1);
-    box-shadow: 0 0 15px #ff00cc;
+    box-shadow: 0 0 20px #ff00cc;
     background: linear-gradient(45deg, #ff33cc, #6633ff);
 }
 
@@ -101,4 +142,25 @@ footer {
     color: white;
     padding: 30px 20px;
     margin-top: 60px;
+    border-top: 4px solid #ff00cc;
+    box-shadow: 0 -5px 20px #ff00cc;
 }
+
+a[href*="forms.gle"] {
+    display: inline-block;
+    background: linear-gradient(45deg, #ff00cc, #3333ff);
+    color: white;
+    padding: 12px 25px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 0 10px #ff00cc;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+a[href*="forms.gle"]:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 20px #ff00cc;
+    background: linear-gradient(45deg, #ff33cc, #6633ff);
+}
+
