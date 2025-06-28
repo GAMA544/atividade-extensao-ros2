@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Atividade de Extensão - ROS 2</title>
+</head>
+<body>
+    <h1>Guia Rápido de Uso do ROS 2</h1>
+    <p>Bem-vindo ao nosso material de extensão! Aqui você encontrará um guia passo-a-passo para instalação e primeiros passos com o ROS 2 em robôs móveis.</p>
+
+    <h2>Conteúdo</h2>
+    <ul>
+        <li>O que é ROS 2</li>
+        <li>Como instalar ROS 2 no Ubuntu</li>
+        <li>Executar nós e tópicos básicos</li>
+        <li>Simulação simples de um robô móvel</li>
+    </ul>
+
+    <h2>Instalação do ROS 2</h2>
+    <p>Para instalar o ROS 2 (exemplo com Ubuntu 22.04), execute:</p>
+    <pre>
+    sudo apt update && sudo apt install curl gnupg lsb-release
+    sudo curl -sSL https://raw.githubusercontent.com/ros/rosdistro/master/ros.key -o /usr/share/keyrings/ros-archive-keyring.gpg
+    echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/ros-archive-keyring.gpg] http://packages.ros.org/ros2/ubuntu $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/ros2.list > /dev/null
+    sudo apt update
+    sudo apt install ros-humble-desktop
+    </pre>
+
+    <h2>Comentários e Sugestões</h2>
+    <p>Por favor, deixe seus comentários e sugestões preenchendo o formulário abaixo:</p>
+    <p><a href="LINK_DO_SEU_GOOGLE_FORM" target="_blank">Formulário de Comentários</a></p>
+
+    <h2>Contador de Visitas</h2>
+    <p><img src="https://www.hitwebcounter.com/counter/counter.php?page=0000000&style=0006&nbdigits=5&type=page&initCount=0" title="contador de visitas" Alt="contador de visitas"></p>
+</body>
+</html>
