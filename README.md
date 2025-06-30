@@ -1,7 +1,3 @@
-Claro. Abaixo está o **Relatório da Atividade Extensionista – ROS 2**, reescrito conforme o formato original que você forneceu, mas com base nas informações do PDF que você compartilhou:
-
----
-
 # Relatório da Atividade Extensionista – ROS 2
 
 ## 🎯 Objetivo da Atividade
@@ -84,8 +80,6 @@ A escolha do tema **ROS 2 aplicado a robôs móveis** se justifica pela sua rele
 
 Acreditamos que esta atividade cumpriu seu papel extensionista ao proporcionar um conteúdo educativo de qualidade, gratuito e visualmente atrativo. Também reforçou o aprendizado da equipe, promovendo maior domínio das ferramentas do ROS 2.
 
-**Material elaborado conforme os critérios da disciplina e com potencial para expansão futura.**
 
----
 
-Se deseja, posso gerar a versão formatada para Word ou LaTeX. Deseja isso?
+
